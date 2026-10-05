@@ -1,0 +1,371 @@
+/* Payment & Checkout Modal Styles - IronForge Gym */
+
+.payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.payment-modal.hidden {
+    display: none !important;
+    opacity: 0;
+}
+
+.payment-modal-content {
+    background: linear-gradient(145deg, #181818, #121212);
+    border: 1px solid rgba(255, 87, 34, 0.3);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 87, 34, 0.15);
+    color: #fff;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalPopIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalPopIn {
+    from {
+        transform: scale(0.92) translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-payment-modal {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.close-payment-modal:hover {
+    color: #ff5722;
+}
+
+/* Order Summary Box */
+.checkout-summary {
+    background: rgba(255, 87, 34, 0.08);
+    border: 1px solid rgba(255, 87, 34, 0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 15px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-details h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #ff5722;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.summary-details p {
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.summary-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.summary-price span {
+    font-size: 0.85rem;
+    color: #aaa;
+    font-weight: 400;
+}
+
+/* Payment Method Tabs */
+.payment-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.payment-tab {
+    flex: 1;
+    padding: 12px;
+    background: #202020;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #bbb;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.payment-tab:hover {
+    border-color: #ff5722;
+    color: #fff;
+}
+
+.payment-tab.active {
+    background: #ff5722;
+    border-color: #ff5722;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+}
+
+/* Form Styles */
+.payment-form-group {
+    margin-bottom: 16px;
+}
+
+.payment-form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: #ccc;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.payment-input-wrap {
+    position: relative;
+}
+
+.payment-input-wrap i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 0.95rem;
+}
+
+.payment-input-wrap input {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.payment-input-wrap input:focus {
+    border-color: #ff5722;
+    background: #242424;
+}
+
+.payment-row {
+    display: flex;
+    gap: 12px;
+}
+
+.payment-row .payment-form-group {
+    flex: 1;
+}
+
+/* UPI Section */
+.upi-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.upi-chip {
+    flex: 1;
+    padding: 8px;
+    background: #202020;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #aaa;
+    font-size: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.upi-chip:hover, .upi-chip.active {
+    border-color: #ff5722;
+    color: #fff;
+    background: rgba(255, 87, 34, 0.15);
+}
+
+.qr-preview {
+    text-align: center;
+    padding: 16px;
+    background: #202020;
+    border: 1px dashed #444;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.qr-preview img {
+    margin: 0 auto 10px;
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px;
+    width: 130px;
+    height: 130px;
+}
+
+.qr-preview p {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0;
+}
+
+/* Submit & Trust */
+.pay-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #ff5722, #e64a19);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(255, 87, 34, 0.35);
+}
+
+.pay-submit-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #ff7043, #f4511e);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 87, 34, 0.5);
+}
+
+.pay-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.security-badge {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 0.8rem;
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.security-badge i {
+    color: #4caf50;
+}
+
+/* Success View */
+.payment-success-box {
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.success-icon-wrap {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 18px;
+    background: rgba(76, 175, 80, 0.15);
+    border: 2px solid #4caf50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4caf50;
+    font-size: 32px;
+    animation: pulseCheck 0.6s ease;
+}
+
+@keyframes pulseCheck {
+    0% { transform: scale(0.5); opacity: 0; }
+    70% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.payment-success-box h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.payment-success-box p {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.receipt-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: left;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #2a2a2a;
+    color: #bbb;
+}
+
+.receipt-row:last-child {
+    border-bottom: none;
+    padding-top: 10px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Current Plan Active Badge on Card */
+.plan-card.current-active {
+    border-color: #4caf50 !important;
+    box-shadow: 0 0 25px rgba(76, 175, 80, 0.25) !important;
+}
+
+.current-plan-badge {
+    background: #4caf50;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}

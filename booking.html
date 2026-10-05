@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve Your Session | IronForge Gym</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="training.html" class="nav-link active">Training</a></li>
+                <li class="nav-item"><a href="tracker.html" class="nav-link">Tracker</a></li>
+                <li class="nav-item"><a href="bmi.html" class="nav-link">BMI Calculator</a></li>
+                <li class="nav-item"><a href="plans.html" class="nav-link">Plans</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="booking-section">
+        <div class="container">
+            <header class="booking-header">
+                <h1>Reserve Your <span class="text-gradient">Session</span></h1>
+            </header>
+
+            <div class="booking-grid">
+                <!-- Left Column -->
+                <div class="booking-main">
+                    <!-- Trainer Bar -->
+                    <div class="booking-trainer-bar">
+                        <img src="images/trainers/marcus_blackwood.png" alt="Marcus Blackwood" class="trainer-thumb" id="trainer-img">
+                        <div class="trainer-bar-info">
+                            <h4 id="trainer-role-display">Elite Performance Coach</h4>
+                            <h3 id="trainer-name-display">Marcus Blackwood</h3>
+                            <div class="trainer-tags">
+                                <span><i class="fa-solid fa-fire"></i> High Intensity</span>
+                                <span><i class="fa-solid fa-location-dot"></i> Studio Noir, NYC</span>
+                                <span><i class="fa-solid fa-clock"></i> 60 Min Session</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Date Selection -->
+                    <div class="booking-card">
+                        <div class="card-title">
+                            Select Date
+                            <div class="calendar-header">
+                                <i class="fa-solid fa-chevron-left" id="prev-month"></i>
+                                <span id="current-month-display">October 2024</span>
+                                <i class="fa-solid fa-chevron-right" id="next-month"></i>
+                            </div>
+                        </div>
+                        <div class="calendar-grid" id="calendar-grid">
+                            <!-- JS will generate days here -->
+                        </div>
+                    </div>
+
+                    <!-- Time Selection -->
+                    <div class="booking-card">
+                        <div class="card-title">Available Times</div>
+                        <div class="time-grid" id="time-grid">
+                            <div class="time-slot" data-time="08:00 AM">
+                                <span class="slot-label">Morning</span>
+                                <span class="slot-time">08:00 AM</span>
+                            </div>
+                            <div class="time-slot" data-time="10:30 AM">
+                                <span class="slot-label">Morning</span>
+                                <span class="slot-time">10:30 AM</span>
+                            </div>
+                            <div class="time-slot active" data-time="02:15 PM">
+                                <span class="slot-label">Afternoon</span>
+                                <span class="slot-time">02:15 PM</span>
+                            </div>
+                            <div class="time-slot" data-time="06:00 PM">
+                                <span class="slot-label">Evening</span>
+                                <span class="slot-time">06:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Summary) -->
+                <aside class="booking-side">
+                    <div class="booking-summary">
+                        <h3 class="summary-title">Summary</h3>
+
+                        <div class="summary-item">
+                            <i class="fa-solid fa-dumbbell"></i>
+                            <div class="item-content">
+                                <span class="item-label">Session Type</span>
+                                <span class="item-value" id="summary-session-type">Elite Performance 1-on-1</span>
+                            </div>
+                            <span class="item-price" id="summary-unit-price">$120.00</span>
+                        </div>
+
+                        <div class="summary-item">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <div class="item-content">
+                                <span class="item-label">Date & Time</span>
+                                <span class="item-value" id="summary-date-time">Oct 11 • 02:15 PM</span>
+                            </div>
+                            <i class="fa-solid fa-edit" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                        </div>
+
+                        <div class="summary-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div class="item-content">
+                                <span class="item-label">Location</span>
+                                <span class="item-value">Main Studio Noir</span>
+                            </div>
+                            <i class="fa-solid fa-building" style="font-size: 0.8rem; opacity: 0.5;"></i>
+                        </div>
+
+                        <form class="promo-box">
+                            <input type="text" placeholder="PROMO CODE">
+                            <button type="button">APPLY</button>
+                        </form>
+
+                        <div class="pricing-breakdown">
+                            <div class="pricing-row">
+                                <span>Subtotal</span>
+                                <span id="summary-subtotal">$120.00</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span>Service Fee</span>
+                                <span>$5.50</span>
+                            </div>
+                            <div class="pricing-row total">
+                                <span>Total Due</span>
+                                <span class="price-val" id="summary-total-price">$125.50</span>
+                            </div>
+                        </div>
+
+                        <div class="payment-method">
+                            <span class="item-label">Payment Method</span>
+                            <div class="payment-card">
+                                <div class="card-info">
+                                    <i class="fa-brands fa-cc-visa" style="font-size: 1.5rem;"></i>
+                                    <span>VISA **** 4242</span>
+                                </div>
+                                <a href="#" class="change-link">Change</a>
+                            </div>
+                        </div>
+
+                        <button class="pay-btn" id="confirm-pay-btn">Confirm & Pay <i class="fa-solid fa-bolt"></i></button>
+
+                        <p class="disclaimer">
+                            By confirming, you agree to IronForge's 24-hour cancellation policy and Terms of Service.
+                        </p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+                </a>
+                <p>IronForge is your ultimate destination for fitness and well-being.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 IronForge Gym. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script type="module" src="js/booking.js"></script>
+</body>
+
+</html>

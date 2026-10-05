@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Marcus Blackwood - Elite Trainer | IronForge Gym</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/trainer-profile.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="training.html" class="nav-link active">Training</a></li>
+                <li class="nav-item"><a href="tracker.html" class="nav-link">Tracker</a></li>
+                <li class="nav-item"><a href="bmi.html" class="nav-link">BMI Calculator</a></li>
+                <li class="nav-item"><a href="plans.html" class="nav-link">Plans</a></li>
+                <li class="nav-item desktop-only"><a href="#" class="nav-link-btn-outline" id="login-btn">Sign In</a></li>
+                <li class="nav-item desktop-only hidden"><a href="#" class="nav-link-btn-outline" id="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Hero Section -->
+    <section class="profile-section">
+        <div class="profile-container">
+            <div class="profile-hero">
+                <!-- Left: Trainer Image -->
+                <div class="profile-image-container">
+                    <img src="images/trainers/marcus_blackwood.png" alt="Marcus Blackwood" class="profile-image" id="trainer-image">
+                    <div class="experience-tag">
+                        <h3 id="trainer-exp-years">12+</h3>
+                        <p id="trainer-exp-text">Years of Mastery</p>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="profile-content">
+                    <span class="role-label" id="trainer-role">Elite Performance Lead</span>
+                    <h1 class="trainer-name" id="trainer-name">Marcus <br> Blackwood</h1>
+                    <p class="trainer-bio" id="trainer-bio">
+                        Redefining human potential through biomechanical precision and high-intensity neural adaptation. 
+                        Marcus doesn't just train bodies; he engineers athletes. With over a decade of experience in 
+                        pro-level conditioning, he specializes in building unstoppable power and resilient physiques.
+                    </p>
+
+                    <div class="profile-stats" id="trainer-stats">
+                        <div class="stat-box">
+                            <span class="stat-value">500+</span>
+                            <span class="stat-label">Clients Transformed</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value">PRO</span>
+                            <span class="stat-label">IFBB Certified</span>
+                        </div>
+                    </div>
+
+                    <a href="booking.html" class="book-btn" id="book-session-link" style="display: block; text-decoration: none;">Book a Session</a>
+                </div>
+            </div>
+
+            <!-- Specialties Section -->
+            <div class="specialties-header">
+                <span class="specialties-subtitle">Specialties & Domains</span>
+            </div>
+
+            <div class="specialties-grid" id="specialties-grid">
+                <!-- Card 1 -->
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <h3>Hypertrophy</h3>
+                    <p>Systematic muscle growth through progressive overload and metabolic stress management.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3>Explosive Power</h3>
+                    <p>Developing fast-twitch muscle fibers for maximum velocity and reactive strength.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="specialty-card">
+                    <div class="specialty-icon">
+                        <i class="fa-solid fa-hand-holding-medical"></i>
+                    </div>
+                    <h3>Post-Injury Rehab</h3>
+                    <p>Corrective exercise protocols to restore functional movement and joint stability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+                </a>
+                <p>IronForge is your ultimate destination for fitness and well-being. Join us to transform your life.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="tracker.html">Tracker</a></li>
+                    <li><a href="bmi.html">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 IronForge Gym. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script>
+        const trainersData = {
+            "amit_kumar": {
+                name: "Amit <br> Kumar",
+                pageTitle: "Amit Kumar - Elite Trainer | IronForge Gym",
+                image: "images/trainers/Gemini_Generated_Image_4myqtm4myqtm4myq.png",
+                expYears: "12+",
+                expText: "Years of Mastery",
+                role: "Elite Performance Lead",
+                bio: "Redefining human potential through biomechanical precision and high-intensity neural adaptation. Kapil doesn't just train bodies; he engineers athletes. With over a decade of experience in pro-level conditioning, he specializes in building unstoppable power and resilient physiques.",
+                stats: `
+                    <div class="stat-box">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">Clients Transformed</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">PRO</span>
+                        <span class="stat-label">IFBB Certified</span>
+                    </div>
+                `,
+                specialties: `
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                        <h3>Hypertrophy</h3>
+                        <p>Systematic muscle growth through progressive overload and metabolic stress management.</p>
+                    </div>
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>Explosive Power</h3>
+                        <p>Developing fast-twitch muscle fibers for maximum velocity and reactive strength.</p>
+                    </div>
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                        <h3>Post-Injury Rehab</h3>
+                        <p>Corrective exercise protocols to restore functional movement and joint stability.</p>
+                    </div>
+                `
+            },
+            "jaxson_reed": {
+                name: "Jaxson <br> Reed",
+                pageTitle: "Jaxson Reed - Body Recomposition | IronForge Gym",
+                image: "images/trainers/Gemini_Generated_Image_666oin666oin666o.png",
+                expYears: "8+",
+                expText: "Years Experience",
+                role: "Body Recomposition Expert",
+                bio: "Nutrition specialist and hypertrophy expert. Jaxson utilizes a data-driven approach to fat loss and muscle building. His methods are backed by science, ensuring sustainable and long-term results for clients of all levels.",
+                stats: `
+                    <div class="stat-box">
+                        <span class="stat-value">300+</span>
+                        <span class="stat-label">Transformations</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">CISSN</span>
+                        <span class="stat-label">Certified</span>
+                    </div>
+                `,
+                specialties: `
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-utensils"></i></div>
+                        <h3>Nutrition Planning</h3>
+                        <p>Customized macro and micro-nutrient protocols tailored for optimal body recomposition.</p>
+                    </div>
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-weight-hanging"></i></div>
+                        <h3>Hypertrophy</h3>
+                        <p>Evidence-based resistance training to maximize muscle growth and strength.</p>
+                    </div>
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Data Tracking</h3>
+                        <p>Meticulous tracking of body metrics and performance to ensure continuous progress.</p>
+                    </div>
+                    </div>
+                `
+            },
+            "aryan_raj": {
+                name: "Aryan <br> Raj",
+                pageTitle: "Aryan Raj - Mobility & Flow | IronForge Gym",
+                image: "images/trainers/Gemini_Generated_Image_gkg5h4gkg5h4gkg5.png",
+                expYears: "10+",
+                expText: "Years Experience",
+                role: "Mobility & Flow Expert",
+                bio: "Master of movement. Aryan focuses on unlocking joint potential and functional range of motion. His unique blend of yoga, calisthenics, and functional training helps clients achieve peak mobility and prevent injuries.",
+                stats: `
+                    <div class="stat-box">
+                        <span class="stat-value">5.0</span>
+                        <span class="stat-label">Average Rating</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">FMS</span>
+                        <span class="stat-label">Certified</span>
+                    </div>
+                `,
+                specialties: `
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-person-walking"></i></div>
+                        <h3>Mobility Flow</h3>
+                        <p>Dynamic movement sequences designed to enhance joint health and flexibility.</p>
+                    </div>
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-yin-yang"></i></div>
+                        <h3>Mind-Muscle Connection</h3>
+                        <p>Techniques to improve proprioception and neuromuscular efficiency.</p>
+                    </div>
+                    <div class="specialty-card">
+                        <div class="specialty-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h3>Active Recovery</h3>
+                        <p>Protocols to accelerate recovery, reduce soreness, and prepare for the next workout.</p>
+                    </div>
+                `
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            let trainerId = params.get('trainer') || 'kapil_dev';
+            
+            if (!trainersData[trainerId]) {
+                trainerId = 'kapil_dev';
+            }
+
+            const data = trainersData[trainerId];
+            
+            document.getElementById('page-title').innerText = data.pageTitle;
+            const imgEl = document.getElementById('trainer-image');
+            imgEl.src = data.image;
+            imgEl.alt = data.name.replace('<br>', '').trim();
+            
+            document.getElementById('trainer-exp-years').innerText = data.expYears;
+            document.getElementById('trainer-exp-text').innerText = data.expText;
+            document.getElementById('trainer-role').innerText = data.role;
+            document.getElementById('trainer-name').innerHTML = data.name;
+            document.getElementById('trainer-bio').innerText = data.bio;
+            document.getElementById('trainer-stats').innerHTML = data.stats;
+            document.getElementById('specialties-grid').innerHTML = data.specialties;
+
+            const bookLink = document.getElementById('book-session-link');
+            if (bookLink) {
+                bookLink.href = `booking.html?trainer=${trainerId}`;
+            }
+        });
+    </script>
+</body>
+
+</html>

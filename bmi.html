@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator - IronForge Gym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="training.html" class="nav-link">Training</a></li>
+                <li class="nav-item"><a href="tracker.html" class="nav-link">Tracker</a></li>
+                <li class="nav-item"><a href="bmi.html" class="nav-link active">BMI Calculator</a></li>
+                <li class="nav-item"><a href="plans.html" class="nav-link">Plans</a></li>
+                <li class="nav-item desktop-only"><a href="login.html" class="nav-link-btn-outline hidden" id="login-btn">Sign In</a>
+                </li>
+                <li class="nav-item desktop-only hidden"><a href="#" class="nav-link-btn-outline"
+                        id="logout-btn">Logout</a></li>
+                <li class="nav-item desktop-only hidden"><span id="user-email-display" class="nav-link"
+                        style="color: var(--primary-color);"></span></li>
+                <li class="nav-item desktop-only"><a href="#" class="nav-link-btn hidden"
+                        onclick="document.getElementById('login-btn').click();" id="join-btn">Join Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Body Mass Index Calculator</h1>
+            <p>Understand your body composition and set realistic fitness goals.</p>
+        </div>
+    </header>
+
+    <!-- Biometric Dashboard Section -->
+    <section class="section bmi-section">
+        <div class="container">
+            <!-- Header -->
+            <div class="biometric-header">
+                <h1 class="biometric-title">BMI <span>CORE</span></h1>
+                <p class="biometric-subtitle"> Precision biometric analysis for elite performance. Shred the limit of your physical potential.</p>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="biometric-grid">
+                <!-- Left: Inputs -->
+                <div class="biometric-card">
+                    <span class="card-label">Biometric Parameters</span>
+                    <form id="bmi-form" class="vitals-form">
+                        <div class="form-group">
+                            <label>Stature (CM)</label>
+                            <input type="number" id="height" class="large-input" placeholder="000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mass (KG)</label>
+                            <input type="number" id="weight" class="large-input" placeholder="00" required>
+                        </div>
+                        <div class="vitals-meta">
+                            <div class="meta-box">
+                                <label>Gender</label>
+                                <select id="gender">
+                                    <option value="male">M</option>
+                                    <option value="female">F</option>
+                                </select>
+                            </div>
+                            <div class="meta-box">
+                                <label>Age</label>
+                                <input type="number" id="age" placeholder="20" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="calculate-btn">Calculate Vitals</button>
+                    </form>
+                </div>
+
+                <!-- Middle: Gauge -->
+                <div class="biometric-card">
+                    <div class="gauge-container">
+                        <svg class="gauge-svg" viewBox="0 0 220 220">
+                            <circle class="gauge-bg" cx="110" cy="110" r="100"></circle>
+                            <circle id="gauge-fill" class="gauge-fill" cx="110" cy="110" r="100"></circle>
+                        </svg>
+                        <div class="gauge-center">
+                            <span id="bmi-value" class="bmi-large-value">00.0</span>
+                            <span class="bmi-sub-text">Index Score</span>
+                        </div>
+                    </div>
+                    <div id="bmi-status-badge" class="status-badge">Standby Mode</div>
+                </div>
+
+                <!-- Right: Analysis -->
+                <div class="biometric-card">
+                    <span class="card-label">Composition Analysis</span>
+                    
+                    <div class="composition-tracker">
+                        <div class="composition-item" id="comp-underweight">
+                            <div class="comp-header">
+                                <span>Underweight</span>
+                                <span>&lt; 18.5</span>
+                            </div>
+                            <div class="comp-bar"><div class="comp-fill" style="width: 100%"></div></div>
+                        </div>
+                        <div class="composition-item" id="comp-healthy">
+                            <div class="comp-header">
+                                <span>Healthy</span>
+                                <span>18.5 - 24.9</span>
+                            </div>
+                            <div class="comp-bar"><div class="comp-fill" style="width: 100%"></div></div>
+                        </div>
+                        <div class="composition-item" id="comp-overweight">
+                            <div class="comp-header">
+                                <span>Overweight</span>
+                                <span>25.0 - 29.9</span>
+                            </div>
+                            <div class="comp-bar"><div class="comp-fill" style="width: 100%"></div></div>
+                        </div>
+                        <div class="composition-item" id="comp-obese">
+                            <div class="comp-header">
+                                <span>Obese</span>
+                                <span>&gt; 30.0</span>
+                            </div>
+                            <div class="comp-bar"><div class="comp-fill" style="width: 100%"></div></div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Tooltip/Card -->
+                    <div class="fuel-card">
+                        <h4>Fuel Your Performance</h4>
+                        <p>Custom nutritional protocols for your biometric profile.</p>
+                        <a href="#diet-recommendation" class="mini-cta" id="view-meals-btn">
+                            View Recommended Meals <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="biometric-features">
+                <div class="feat-card">
+                    <div class="feat-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h5>Metabolic Velocity</h5>
+                    <p>Advanced tracking of calorie burn efficiency based on biometric density.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                    <h5>Force Distribution</h5>
+                    <p>Calculate optimal load-bearing capacity for skeletal health integrity.</p>
+                </div>
+                <div class="feat-card">
+                    <div class="feat-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                    <h5>Precision Goals</h5>
+                    <p>AI-driven target weight forecasting with 98% metabolic accuracy.</p>
+                </div>
+            </div>
+
+            <!-- Diet Recommendation Section (Hidden by default) -->
+            <div id="diet-recommendation" class="diet-recommendation hidden">
+                <div class="diet-header text-center">
+                    <h2 class="section-title">Your Personalized <span class="text-gradient">Diet Plan</span></h2>
+                    <p class="section-subtitle" id="diet-plan-name">Based on your BMI results, here is a suggested nutritional approach.</p>
+                </div>
+
+                <div class="diet-grid">
+                    <!-- Meal Cards will be populated by JS -->
+                    <div class="meal-card">
+                        <div class="meal-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                        <h4>Breakfast</h4>
+                        <p id="meal-breakfast">Loading...</p>
+                    </div>
+                    <div class="meal-card">
+                        <div class="meal-icon"><i class="fa-solid fa-utensils"></i></div>
+                        <h4>Lunch</h4>
+                        <p id="meal-lunch">Loading...</p>
+                    </div>
+                    <div class="meal-card">
+                        <div class="meal-icon"><i class="fa-solid fa-bowl-food"></i></div>
+                        <h4>Dinner</h4>
+                        <p id="meal-dinner">Loading...</p>
+                    </div>
+                    <div class="meal-card">
+                        <div class="meal-icon"><i class="fa-solid fa-apple-whole"></i></div>
+                        <h4>Snack</h4>
+                        <p id="meal-snack">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="macro-section">
+                    <h3>Daily Macronutrient Goal</h3>
+                    <div class="macro-bars">
+                        <div class="macro-item">
+                            <div class="macro-label">
+                                <span>Protein</span>
+                                <span id="protein-pct">--%</span>
+                            </div>
+                            <div class="macro-progress">
+                                <div id="protein-bar" class="macro-fill protein" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-label">
+                                <span>Carbohydrates</span>
+                                <span id="carbs-pct">--%</span>
+                            </div>
+                            <div class="macro-progress">
+                                <div id="carbs-bar" class="macro-fill carbs" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-label">
+                                <span>Fats</span>
+                                <span id="fats-pct">--%</span>
+                            </div>
+                            <div class="macro-progress">
+                                <div id="fats-bar" class="macro-fill fats" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="diet-disclaimer">
+                    <p><i class="fa-solid fa-circle-info"></i> Note: These are general suggestions. Please consult with a professional nutritionist or doctor before starting a new diet program.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+                </a>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="tracker.html">Tracker</a></li>
+                    <li><a href="bmi.html">BMI Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal hidden">
+        <div class="auth-modal-content" id="auth-container">
+            <button class="close-modal">&times;</button>
+            
+            <!-- Glassmorphism decorative elements -->
+            <div class="auth-decor auth-decor-1"></div>
+            <div class="auth-decor auth-decor-2"></div>
+
+            <div class="auth-switcher">
+                <div class="switcher-slider"></div>
+                <button type="button" class="switcher-tab active" id="tab-login">Login</button>
+                <button type="button" class="switcher-tab" id="tab-register">Sign Up</button>
+            </div>
+
+            <div class="auth-header">
+                <h2 id="auth-title">Welcome Back</h2>
+                <p id="auth-subtitle">Elevate your fitness journey with IronForge</p>
+            </div>
+
+            <div class="auth-body">
+                <form id="auth-form">
+                    <div class="form-group" id="name-group">
+                        <label><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" name="full_name" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" name="email" required placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" name="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-btn" id="auth-submit-btn">Login</button>
+                </form>
+
+                <div class="divider">or continue with</div>
+
+                <div class="auth-social">
+                    <button id="google-signin-btn" class="google-btn">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                        <span>Google Account</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

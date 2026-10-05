@@ -1,0 +1,213 @@
+.profile-section {
+    padding-top: 120px;
+    background-color: var(--bg-dark);
+    min-height: 100vh;
+}
+
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.profile-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.profile-image-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.profile-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: contrast(1.1) brightness(0.9);
+}
+
+.experience-tag {
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.experience-tag h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.experience-tag p {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.role-label {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.trainer-name {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.trainer-bio {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 40px;
+    margin: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.book-btn {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #FF8A65, #FF5722);
+    color: #fff;
+    padding: 18px 40px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(255, 87, 34, 0.3);
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.book-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 87, 34, 0.4);
+}
+
+/* Specialties Section */
+.specialties-header {
+    margin-bottom: 40px;
+}
+
+.specialties-subtitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.specialty-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.specialty-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 87, 34, 0.3);
+    transform: translateY(-5px);
+}
+
+.specialty-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.specialty-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.specialty-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .profile-hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .trainer-name {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .specialties-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

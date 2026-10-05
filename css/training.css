@@ -1,0 +1,417 @@
+/* --- Training Dashboard Styles --- */
+
+:root {
+    --bg-sidebar: #121212;
+    --bg-card-glass: rgba(25, 25, 25, 0.7);
+    --border-glass: rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-wrapper {
+    padding-top: 120px;
+    background-color: var(--bg-dark);
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items: start;
+    background-color: var(--bg-dark) !important;
+    min-height: auto !important;
+}
+
+/* Sidebar Styling */
+.training-sidebar {
+    background: var(--bg-sidebar);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--border-glass);
+    position: sticky;
+    top: 120px;
+}
+
+.filter-group {
+    margin-bottom: 35px;
+}
+
+.filter-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* Pills */
+.pill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pill:hover, .pill.active {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* Slider */
+.range-container {
+    padding: 10px 0;
+}
+
+.range-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    outline: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+}
+
+.range-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+#rate-val {
+    color: #fff;
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.custom-checkbox input:checked + .checkmark {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked + .checkmark:after {
+    display: block;
+}
+
+.custom-checkbox small {
+    color: var(--text-muted);
+}
+
+/* Time Grid */
+.time-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.time-btn {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.time-btn:hover, .time-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+.training-main {
+    background-color: var(--bg-dark) !important;
+}
+
+.main-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 50px;
+    background: transparent !important;
+}
+
+.elite-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 0.95;
+    margin-bottom: 20px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.elite-title span {
+    color: var(--primary-color);
+}
+
+.elite-subtitle {
+    color: var(--text-muted);
+    max-width: 450px;
+    font-size: 1rem;
+}
+
+.search-bar {
+    position: relative;
+    width: 350px;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px 45px 15px 20px;
+    background: rgba(25, 25, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.search-bar i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+/* Trainer Grid */
+.trainer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.trainer-card {
+    background: var(--bg-card-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.trainer-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 87, 34, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-img-wrapper {
+    position: relative;
+    height: 380px;
+    overflow: hidden;
+}
+
+.trainer-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.trainer-card:hover .trainer-avatar {
+    transform: scale(1.05);
+}
+
+.badge-top {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.trainer-type {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.trainer-type span {
+    color: rgba(255, 255, 255, 0.3);
+    margin-left: 10px;
+}
+
+.card-main-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.trainer-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+}
+
+.trainer-rating {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.trainer-rating i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.trainer-role {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.trainer-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.trainer-price {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.trainer-price span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.view-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.view-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .training-sidebar {
+        position: relative;
+        top: 0;
+        margin-bottom: 40px;
+    }
+    
+    .elite-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .search-bar {
+        width: 100%;
+    }
+}

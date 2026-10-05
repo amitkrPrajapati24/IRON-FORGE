@@ -1,0 +1,791 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --bg-card: #2a2a2a;
+    --bg-card-hover: #323232;
+    --accent-primary: #ff5722;
+    --accent-hover: #ff6b3d;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-muted: #707070;
+    --border-color: #3a3a3a;
+    --success: #4caf50;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-lg: rgba(0, 0, 0, 0.5);
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-primary), #ff8a65);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Tracker Grid */
+.tracker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+/* Tracker Cards */
+.tracker-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 24px var(--shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-color);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.tracker-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px var(--shadow-lg);
+    border-color: var(--accent-primary);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Calorie Tracker */
+.calorie-display {
+    margin-bottom: 20px;
+}
+
+.calorie-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.current-calories {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    line-height: 1;
+}
+
+.goal-calories {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-primary), #ff8a65);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.input-group input {
+    flex: 1;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+}
+
+.add-btn {
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-btn:hover {
+    background: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+.add-btn:active {
+    transform: scale(0.95);
+}
+
+/* Water Tracker */
+.water-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.water-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.water-glass {
+    aspect-ratio: 1;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.water-glass::before {
+    content: '💧';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.water-glass.filled {
+    background: linear-gradient(135deg, #2196f3, #03a9f4);
+    border-color: #2196f3;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+
+.water-glass.filled::before {
+    opacity: 1;
+    filter: brightness(1.5);
+}
+
+.water-glass:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-primary);
+}
+
+.drink-btn {
+    width: 100%;
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.drink-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 87, 34, 0.3);
+}
+
+/* Calendar */
+.month-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-btn {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+#currentMonth {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    position: relative;
+}
+
+.calendar-day.header {
+    background: transparent;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.75rem;
+    cursor: default;
+}
+
+.calendar-day.other-month {
+    color: var(--text-muted);
+    opacity: 0.4;
+}
+
+.calendar-day:not(.header):not(.other-month):hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-primary);
+    transform: scale(1.05);
+}
+
+.calendar-day.selected {
+    background: var(--accent-primary);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.4);
+}
+
+.calendar-day.today {
+    border-color: var(--accent-primary);
+}
+
+.calendar-day.has-data::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+}
+
+.calendar-day.selected.has-data::after {
+    background: white;
+}
+
+/* Workout Log */
+.workout-card {
+    grid-column: span 2;
+}
+
+.add-exercise-btn {
+    background: transparent;
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-exercise-btn:hover {
+    background: var(--accent-primary);
+    color: white;
+}
+
+.workout-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.workout-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.workout-list::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+}
+
+.workout-list::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 10px;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 40px 20px;
+}
+
+.workout-item {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    animation: slideIn 0.3s ease-out;
+}
+
+.workout-item:hover {
+    border-color: var(--accent-primary);
+    transform: translateX(4px);
+}
+
+.workout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.workout-name {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.delete-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 87, 34, 0.1);
+    color: var(--accent-primary);
+}
+
+.workout-details {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.workout-detail {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Analytics Section */
+.analytics-section {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 24px var(--shadow);
+    border: 1px solid var(--border-color);
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.analytics-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.analytics-tabs {
+    display: flex;
+    gap: 8px;
+    background: var(--bg-secondary);
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.tab-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    background: var(--accent-primary);
+    color: white;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+#analyticsChart {
+    width: 100%;
+    height: 100%;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    animation: slideUp 0.3s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 87, 34, 0.1);
+    color: var(--accent-primary);
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 12px;
+    padding: 24px;
+    border-top: 1px solid var(--border-color);
+    justify-content: flex-end;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.cancel-btn,
+.submit-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.cancel-btn {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.cancel-btn:hover {
+    background: var(--bg-card-hover);
+}
+
+.submit-btn {
+    background: var(--accent-primary);
+    color: white;
+}
+
+.submit-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 87, 34, 0.3);
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 87, 34, 0.1);
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .workout-card {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .tracker-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .analytics-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .chart-container {
+        height: 300px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .tracker-card {
+        padding: 16px;
+    }
+
+    .analytics-section {
+        padding: 20px;
+    }
+
+    .current-calories {
+        font-size: 2.5rem;
+    }
+}

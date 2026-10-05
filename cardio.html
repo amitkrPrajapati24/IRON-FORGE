@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardio Exercises - IronForge Gym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .exercise-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.1);
+        }
+
+        .exercise-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .exercise-info {
+            padding: 30px;
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .exercise-header h2 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .exercise-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .benefits-list {
+            margin-top: 15px;
+        }
+
+        .benefits-list h4 {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .benefits-list ul {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefits-list li i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="training.html" class="nav-link active">Training</a></li>
+                <li class="nav-item"><a href="tracker.html" class="nav-link">Tracker</a></li>
+                <li class="nav-item"><a href="bmi.html" class="nav-link">BMI Calculator</a></li>
+                <li class="nav-item"><a href="plans.html" class="nav-link">Plans</a></li>
+                <li class="nav-item desktop-only"><a href="login.html" class="nav-link-btn-outline hidden" id="login-btn">Sign In</a>
+                </li>
+                <li class="nav-item desktop-only hidden"><a href="#" class="nav-link-btn-outline"
+                        id="logout-btn">Logout</a></li>
+                <li class="nav-item desktop-only hidden"><span id="user-email-display" class="nav-link"
+                        style="color: var(--primary-color);"></span></li>
+                <li class="nav-item desktop-only"><a href="#" class="nav-link-btn hidden"
+                        onclick="document.getElementById('login-btn').click();" id="join-btn">Join Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Cardio Training</h1>
+            <p>Elevate your heart rate and burn calories with our expert-curated cardio exercises.</p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <section class="section">
+        <div class="container">
+            <div class="exercise-grid">
+
+                <!-- Running -->
+                <div class="exercise-card">
+                    <img src="https://images.unsplash.com/photo-1594882645126-14020914d58d?auto=format&fit=crop&q=80&w=1000"
+                        alt="Running" class="exercise-image">
+                    <div class="exercise-info">
+                        <div class="exercise-header">
+                            <h2>Running</h2>
+                            <i class="fa-solid fa-person-running" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div class="exercise-stats">
+                            <div class="stat">
+                                <span class="stat-label">Intervals</span>
+                                <span class="stat-value">5-8 Sets</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Duration</span>
+                                <span class="stat-value">30-45 Min</span>
+                            </div>
+                        </div>
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Enhances cardiovascular health</li>
+                                <li><i class="fa-solid fa-check"></i> High calorie burn per session</li>
+                                <li><i class="fa-solid fa-check"></i> Improves metabolic rate</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cycling -->
+                <div class="exercise-card">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1000"
+                        alt="Cycling" class="exercise-image">
+                    <div class="exercise-info">
+                        <div class="exercise-header">
+                            <h2>Cycling</h2>
+                            <i class="fa-solid fa-bicycle" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div class="exercise-stats">
+                            <div class="stat">
+                                <span class="stat-label">Intensity</span>
+                                <span class="stat-value">Moderate-High</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Duration</span>
+                                <span class="stat-value">40-60 Min</span>
+                            </div>
+                        </div>
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Low impact on joints</li>
+                                <li><i class="fa-solid fa-check"></i> Builds leg strength & power</li>
+                                <li><i class="fa-solid fa-check"></i> Increases lung capacity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jump Rope -->
+                <div class="exercise-card">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1000"
+                        alt="Jump Rope" class="exercise-image">
+                    <div class="exercise-info">
+                        <div class="exercise-header">
+                            <h2>Jump Rope</h2>
+                            <i class="fa-solid fa-running" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div class="exercise-stats">
+                            <div class="stat">
+                                <span class="stat-label">Sets</span>
+                                <span class="stat-value">10 x 1 Min</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Rest</span>
+                                <span class="stat-value">30 Sec</span>
+                            </div>
+                        </div>
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Improves coordination & agility</li>
+                                <li><i class="fa-solid fa-check"></i> Total body engagement</li>
+                                <li><i class="fa-solid fa-check"></i> Time-efficient conditioning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swimming -->
+                <div class="exercise-card">
+                    <img src="https://images.unsplash.com/photo-1530549387074-d562cb0e50ae?auto=format&fit=crop&q=80&w=1000"
+                        alt="Swimming" class="exercise-image">
+                    <div class="exercise-info">
+                        <div class="exercise-header">
+                            <h2>Swimming</h2>
+                            <i class="fa-solid fa-person-swimming" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div class="exercise-stats">
+                            <div class="stat">
+                                <span class="stat-label">Laps</span>
+                                <span class="stat-value">20-30 Laps</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Duration</span>
+                                <span class="stat-value">30-40 Min</span>
+                            </div>
+                        </div>
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Full body workout</li>
+                                <li><i class="fa-solid fa-check"></i> Excellent for active recovery</li>
+                                <li><i class="fa-solid fa-check"></i> Zero impact on joints</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rowing -->
+                <div class="exercise-card">
+                    <img src="https://images.unsplash.com/photo-1544216717-3bbf52512659?auto=format&fit=crop&q=80&w=1000"
+                        alt="Rowing" class="exercise-image">
+                    <div class="exercise-info">
+                        <div class="exercise-header">
+                            <h2>Rowing</h2>
+                            <i class="fa-solid fa-mound" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div class="exercise-stats">
+                            <div class="stat">
+                                <span class="stat-label">Distance</span>
+                                <span class="stat-value">2,000 Meters</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Pace</span>
+                                <span class="stat-value">Moderate</span>
+                            </div>
+                        </div>
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Builds upper & lower body power</li>
+                                <li><i class="fa-solid fa-check"></i> Increases muscular endurance</li>
+                                <li><i class="fa-solid fa-check"></i> High intensity potential</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HIIT Burpees -->
+                <div class="exercise-card">
+                    <img src="https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&q=80&w=1000"
+                        alt="Burpees" class="exercise-image">
+                    <div class="exercise-info">
+                        <div class="exercise-header">
+                            <h2>HIIT Burpees</h2>
+                            <i class="fa-solid fa-bolt" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div class="exercise-stats">
+                            <div class="stat">
+                                <span class="stat-label">Sets</span>
+                                <span class="stat-value">4 Rounds</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Duration</span>
+                                <span class="stat-value">20 Min Total</span>
+                            </div>
+                        </div>
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Maximum calorie explosive power</li>
+                                <li><i class="fa-solid fa-check"></i> Requires no equipment</li>
+                                <li><i class="fa-solid fa-check"></i> Boosts anaerobic capacity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+                </a>
+                <p>IronForge is your ultimate destination for fitness and well-being.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="tracker.html">Tracker</a></li>
+                    <li><a href="bmi.html">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 IronForge Gym. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal hidden">
+        <div class="auth-modal-content" id="auth-container">
+            <button class="close-modal">&times;</button>
+            
+            <!-- Glassmorphism decorative elements -->
+            <div class="auth-decor auth-decor-1"></div>
+            <div class="auth-decor auth-decor-2"></div>
+
+            <div class="auth-switcher">
+                <div class="switcher-slider"></div>
+                <button type="button" class="switcher-tab active" id="tab-login">Login</button>
+                <button type="button" class="switcher-tab" id="tab-register">Sign Up</button>
+            </div>
+
+            <div class="auth-header">
+                <h2 id="auth-title">Welcome Back</h2>
+                <p id="auth-subtitle">Elevate your fitness journey with IronForge</p>
+            </div>
+
+            <div class="auth-body">
+                <form id="auth-form">
+                    <div class="form-group" id="name-group">
+                        <label><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" name="full_name" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" name="email" required placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" name="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-btn" id="auth-submit-btn">Login</button>
+                </form>
+
+                <div class="divider">or continue with</div>
+
+                <div class="auth-social">
+                    <button id="google-signin-btn" class="google-btn">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                        <span>Google Account</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

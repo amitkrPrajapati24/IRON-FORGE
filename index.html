@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronForge Gym - Build Your Strongest Self</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+            </a>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="training.html" class="nav-link">Training</a></li>
+                <li class="nav-item"><a href="tracker.html" class="nav-link">Tracker</a></li>
+                <li class="nav-item"><a href="bmi.html" class="nav-link">BMI Calculator</a></li>
+                <li class="nav-item"><a href="plans.html" class="nav-link">Plans</a></li>
+                <li class="nav-item desktop-only"><a href="#" class="nav-link-btn-outline" id="login-btn">Sign
+                        In</a>
+                </li>
+                <li class="nav-item desktop-only hidden"><a href="#" class="nav-link-btn-outline"
+                        id="logout-btn">Logout</a></li>
+                <li class="nav-item desktop-only hidden"><span id="user-email-display" class="nav-link"
+                        style="color: var(--primary-color);"></span></li>
+                <li class="nav-item desktop-only"><a href="#" class="nav-link-btn" id="join-btn">Join Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="dot"></span> New Year Special - 50% Off
+                </div>
+                <h1 class="hero-title">Build Your <br> <span class="text-gradient">Strongest</span> Self</h1>
+                <p class="hero-description">
+                    Transform your body and mind with world-class facilities, expert trainers, and a community that
+                    pushes you further.
+                </p>
+                <div class="hero-btns">
+                    <a href="plans.html" class="btn btn-primary">Get Started</a>
+                    <a href="training.html" class="btn btn-secondary"><i class="fa-solid fa-play"></i> Lets train</a>
+                </div>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Happy Members</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Expert Trainers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="hero-visual">
+                    <div class="circle-bg"></div>
+                    <div class="floating-card card-workouts">
+                        <div class="card-icon"><i class="fa-solid fa-fire"></i></div>
+                        <div>
+                            <h4>Today's Workouts</h4>
+                            <h3>2,847</h3>
+                        </div>
+                    </div>
+                    <div class="floating-card card-calories">
+                        <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <div>
+                            <h4>Calories Burned</h4>
+                            <h3>12,400 kcal</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Teaser -->
+    <section class="section">
+        <div class="container text-center">
+            <h2 class="section-title">Why IronForge?</h2>
+            <div class="grid-3">
+                <div class="program-card">
+                    <div class="card-icon-lg"><i class="fa-solid fa-trophy"></i></div>
+                    <h3>World Class Equipment</h3>
+                    <p>We provide the best equipment for your workout to ensure safety and efficiency.</p>
+                </div>
+                <div class="program-card">
+                    <div class="card-icon-lg"><i class="fa-solid fa-users"></i></div>
+                    <h3>Community Support</h3>
+                    <p>Join a community that supports and pushes you to achieve your personal best.</p>
+                </div>
+                <div class="program-card">
+                    <div class="card-icon-lg"><i class="fa-solid fa-clock"></i></div>
+                    <h3>24/7 Access</h3>
+                    <p>Train whenever you want with our round-the-clock access availability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section plans">
+        <div class="container text-center">
+            <h2 class="section-title">Ready to Start?</h2>
+            <p class="section-subtitle" style="margin-bottom: 30px;">Choose a plan that fits your goals and start your
+                journey today.</p>
+            <a href="plans.html" class="btn btn-primary">View Membership Plans</a>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section class="section trainers" id="trainers">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 50px;">
+                <h2 class="section-title">Meet Our <span class="text-gradient">Expert Trainers</span></h2>
+                <p class="section-subtitle">Learn from professionals who are dedicated to your fitness journey.</p>
+            </div>
+            <div class="grid-3 trainer-grid">
+                <div class="trainer-card">
+                    <div class="trainer-img">
+                        <img src="images/trainers/Gemini_Generated_Image_4myqtm4myqtm4myq.png" alt="Alex Rivera">
+                        <div class="trainer-social">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Amit Kumar </h3>
+                        <p class="specialty">Strength & Conditioning</p>
+                    </div>
+                </div>
+                <div class="trainer-card">
+                    <div class="trainer-img">
+                        <img src="images/trainers/Gemini_Generated_Image_gkg5h4gkg5h4gkg5.png" alt="Sarah Chen">
+                        <div class="trainer-social">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Aryan Raj</h3>
+                        <p class="specialty">Yoga & Flexibility</p>
+                    </div>
+                </div>
+                <div class="trainer-card">
+                    <div class="trainer-img">
+                        <img src="images/trainers/Gemini_Generated_Image_666oin666oin666o.png" alt="Marcus Thorne">
+                        <div class="trainer-social">
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Shivam Kumar</h3>
+                        <p class="specialty">Bodybuilding Coach</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-dumbbell"></i> IRON<span>FORGE</span>
+                </a>
+                <p>IronForge is your ultimate destination for fitness and well-being. Join us to transform your life.
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="tracker.html">Tracker</a></li>
+                    <li><a href="bmi.html">BMI Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe to our newsletter for the latest updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 IronForge Gym. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal hidden">
+        <div class="auth-modal-content" id="auth-container">
+            <button class="close-modal">&times;</button>
+
+            <!-- Glassmorphism decorative elements -->
+            <div class="auth-decor auth-decor-1"></div>
+            <div class="auth-decor auth-decor-2"></div>
+
+            <div class="auth-switcher">
+                <div class="switcher-slider"></div>
+                <button type="button" class="switcher-tab active" id="tab-login">Login</button>
+                <button type="button" class="switcher-tab" id="tab-register">Sign Up</button>
+            </div>
+
+            <div class="auth-header">
+                <h2 id="auth-title">Welcome Back</h2>
+                <p id="auth-subtitle">Elevate your fitness journey with IronForge</p>
+            </div>
+
+            <div class="auth-body">
+                <form id="auth-form">
+                    <div class="form-group" id="name-group">
+                        <label><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" name="full_name" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" name="email" required placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" name="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="auth-btn" id="auth-submit-btn">Login</button>
+                </form>
+
+                <div class="divider">or continue with</div>
+
+                <div class="auth-social">
+                    <button id="google-signin-btn" class="google-btn">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                        <span>Google Account</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>
